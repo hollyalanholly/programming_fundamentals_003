@@ -23,4 +23,19 @@ describe("catalogueService", () => {
       expect(catalogueService.countBooksByFirstLetter("w")).toBe(2);
     });
   });
-});
+
+    describe("catalogueService.getQuantity", () => {
+      test("looks at the title and finds how many books in stock", () => {
+        expect(catalogueService.getQuantity("A Place of Greater Safety")).toBe(11);
+      });
+
+    });
+
+    describe("catalogueService.checkQuantity", () => {
+      test("returns true if the title matches and if quantity is more than or equal to quantity", () => {
+        expect(catalogueService.checkQuantity("By Night In Chile", 4)).toBe(true);
+        expect(catalogueService.checkQuantity("By Night In Chile", 100)).toBe(false);
+      });
+    });
+  });
+

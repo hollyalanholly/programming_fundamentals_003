@@ -59,27 +59,37 @@ function countBooksByFirstLetter(letter) {
       return count
   }
 
-  
-// function countBooksByKeyword(keyword) {
-//   let count= 0;
-//     for (let i = 0; i < catalogue.length; i++) {
-//         if (catalogue[i].toLowerCase().includes(keyword.toString().toLowerCase())) {
-//             count++;
-//       }
-//     }
-//     return count;
-//   };
-
 function getQuantity(title) {
-  // Your code here
+  // if it sees the title then return the amount in stock
+  for (let i = 0; i < catalogue.length; i++) {
+    if(catalogue[i].title === title) {
+      return catalogue[i].quantity
+    }
 }
-
+}
 function getBooksByAuthor(author) {
-  // Your code here
+  // Takes author and makes an array of all the books that author writes.
+  //need to generate a new array
+  //that array will house the books by that author
+  //for every thing in that loop
+  let bookHouse= [];
+  for (let i = 0; i < catalogue.length; i++) {
+    if(catalogue[i].author)
+    bookHouse.push(catalogue[i]);
+}
+return bookHouse;
 }
 
 function checkQuantity(title, quantity) {
-  // Your code here
+  //goes into each item in the object and find the title.  If the title is there AND the quantity is >= quantity 
+  //return TRUE
+  // if not return false.
+  for (let i = 0; i < catalogue.length; i++) {
+    if(catalogue[i].title === title && catalogue[i].quantity>=quantity) {
+      return true;
+    }
+}
+return false;
 }
 
 module.exports = {
